@@ -107,8 +107,7 @@ public class AdasSystemSource {
             System.out.println("This os a Python Code which holds algorithem to run the car");
 
 
-            System.out.println("This os a Python Code which holds algorithem to erun the car");
-
+            
 
             // Thony Editor
 
