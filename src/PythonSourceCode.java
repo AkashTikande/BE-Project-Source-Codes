@@ -1,14 +1,10 @@
 public class PythonSourceCode {
     public static void main(String[] args) {
 
-        //Thony Editor Code
-        
 
+        System.out.println("This is python code -Thony editor ");
 
-        // Thony Editor micro python project code
-
-  /* Code is Commented
-        import machine
+  /*      import machine
 import time
         time.sleep(2)
 # Define pins
@@ -148,8 +144,8 @@ import time
         stop_motors()
 
         time.sleep(0.01)  # Delay before next measurement
-*/
 
+*/
     }
 
 }
