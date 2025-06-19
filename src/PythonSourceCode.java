@@ -2,7 +2,7 @@ public class PythonSourceCode {
     public static void main(String[] args) {
 
 
-        System.out.println("This is python code -Thony editor ");
+        System.out.println("This is python code -Thonny editor ");
 
   /*      import machine
 import time
