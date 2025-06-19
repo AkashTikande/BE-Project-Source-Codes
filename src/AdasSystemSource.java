@@ -3,8 +3,8 @@ public class AdasSystemSource {
 
 
             //Arduino IDE
-                
 
+/*
             System.out.println("This is C++ code of project Advanced " +
                     "ADAS system using Raspberry pi");
             System.out.println("                   #include <ESP8266WebServer-impl.h>\n" +
@@ -105,6 +105,11 @@ public class AdasSystemSource {
 
 
             System.out.println("This os a Python Code which holds algorithem to run the car");
+
+*/
+            
+
+            // Thony Editor
 
 
         }

@@ -1,146 +1,155 @@
 public class PythonSourceCode {
     public static void main(String[] args) {
-        System.out.println(         "                 System.out.println(                \"                import machine\\n\" +\n" +
-                "                    \"import time\\n\" +\n" +
-                "                    \"time.sleep(2)\\n\" +\n" +
-                "                    \"# Define pins\\n\" +\n" +
-                "                    \"TRIG_PIN = 11\\n\" +\n" +
-                "                    \"ECHO_PIN = 12\\n\" +\n" +
-                "                    \"BUTTON1_PIN = 9\\n\" +\n" +
-                "                    \"BUTTON2_PIN = 8\\n\" +\n" +
-                "                    \"IR1_PIN = 5\\n\" +\n" +
-                "                    \"IR2_PIN = 6\\n\" +\n" +
-                "                    \"IN1 = 1\\n\" +\n" +
-                "                    \"IN2 = 2\\n\" +\n" +
-                "                    \"IN3 = 3\\n\" +\n" +
-                "                    \"IN4 = 4\\n\" +\n" +
-                "                    \"a=0\\n\" +\n" +
-                "                    \"b=0\\n\" +\n" +
-                "                    \"# Set up GPIO\\n\" +\n" +
-                "                    \"trig = machine.Pin(TRIG_PIN, machine.Pin.OUT)\\n\" +\n" +
-                "                    \"echo = machine.Pin(ECHO_PIN, machine.Pin.IN)\\n\" +\n" +
-                "                    \"button1 = machine.Pin(BUTTON1_PIN, machine.Pin.IN, machine.Pin.PULL_DOWN)\\n\" +\n" +
-                "                    \"button2 = machine.Pin(BUTTON2_PIN, machine.Pin.IN, machine.Pin.PULL_DOWN)\\n\" +\n" +
-                "                    \"ir1 = machine.Pin(IR1_PIN, machine.Pin.IN)\\n\" +\n" +
-                "                    \"ir2 = machine.Pin(IR2_PIN, machine.Pin.IN)\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"motor1_forward = machine.Pin(IN1, machine.Pin.OUT)\\n\" +\n" +
-                "                    \"motor1_backward = machine.Pin(IN2, machine.Pin.OUT)\\n\" +\n" +
-                "                    \"motor2_forward = machine.Pin(IN4, machine.Pin.OUT)\\n\" +\n" +
-                "                    \"motor2_backward = machine.Pin(IN3, machine.Pin.OUT)\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"def measure_distance():\\n\" +\n" +
-                "                    \"    # Ensure trigger is low\\n\" +\n" +
-                "                    \"    trig.low()\\n\" +\n" +
-                "                    \"    time.sleep_us(2)\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    # Send a 10us pulse to trigger\\n\" +\n" +
-                "                    \"    trig.high()\\n\" +\n" +
-                "                    \"    time.sleep_us(10)\\n\" +\n" +
-                "                    \"    trig.low()\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    # Wait for echo to go high and record the start time\\n\" +\n" +
-                "                    \"    while echo.value() == 0:\\n\" +\n" +
-                "                    \"        pass\\n\" +\n" +
-                "                    \"    start = time.ticks_us()\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    # Wait for echo to go low and record the end time\\n\" +\n" +
-                "                    \"    while echo.value() == 1:\\n\" +\n" +
-                "                    \"        pass\\n\" +\n" +
-                "                    \"    end = time.ticks_us()\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    # Calculate duration and distance\\n\" +\n" +
-                "                    \"    duration = end - start\\n\" +\n" +
-                "                    \"    distance = (duration * 0.0343) / 2  # Convert to cm\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    return distance\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"def move_forward():\\n\" +\n" +
-                "                    \"    motor1_forward.high()\\n\" +\n" +
-                "                    \"    motor1_backward.low()\\n\" +\n" +
-                "                    \"    motor2_forward.high()\\n\" +\n" +
-                "                    \"    motor2_backward.low()\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"def move_backward():\\n\" +\n" +
-                "                    \"    motor1_forward.low()\\n\" +\n" +
-                "                    \"    motor1_backward.high()\\n\" +\n" +
-                "                    \"    motor2_forward.low()\\n\" +\n" +
-                "                    \"    motor2_backward.high()\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"def turn_motors():\\n\" +\n" +
-                "                    \"    motor1_forward.high()\\n\" +\n" +
-                "                    \"    motor1_backward.low()\\n\" +\n" +
-                "                    \"    motor2_forward.low()\\n\" +\n" +
-                "                    \"    motor2_backward.high()\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"def turn_right():\\n\" +\n" +
-                "                    \"    motor1_forward.high()\\n\" +\n" +
-                "                    \"    motor1_backward.low()\\n\" +\n" +
-                "                    \"    motor2_forward.low()\\n\" +\n" +
-                "                    \"    motor2_backward.high()\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"def turn_left():\\n\" +\n" +
-                "                    \"    motor1_forward.low()\\n\" +\n" +
-                "                    \"    motor1_backward.high()\\n\" +\n" +
-                "                    \"    motor2_forward.high()\\n\" +\n" +
-                "                    \"    motor2_backward.low()\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"def stop_motors():\\n\" +\n" +
-                "                    \"    motor1_forward.low()\\n\" +\n" +
-                "                    \"    motor1_backward.low()\\n\" +\n" +
-                "                    \"    motor2_forward.low()\\n\" +\n" +
-                "                    \"    motor2_backward.low()\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"while True:\\n\" +\n" +
-                "                    \"    dist = measure_distance()\\n\" +\n" +
-                "                    \"    button1_state = button1.value()\\n\" +\n" +
-                "                    \"    button2_state = button2.value()\\n\" +\n" +
-                "                    \"    ir1_value = ir1.value()\\n\" +\n" +
-                "                    \"    ir2_value = ir2.value()\\n\" +\n" +
-                "                    \"\\n\" +\n" +
-                "                    \"    if button1_state == 1:\\n\" +\n" +
-                "                    \"        a=1\\n\" +\n" +
-                "                    \"        b=0\\n\" +\n" +
-                "                    \"        \\n\" +\n" +
-                "                    \"    if button2_state == 1:\\n\" +\n" +
-                "                    \"        a=0\\n\" +\n" +
-                "                    \"        b=1\\n\" +\n" +
-                "                    \"        \\n\" +\n" +
-                "                    \"    if b==1:  \\n\" +\n" +
-                "                    \"        if ir1_value==0 and ir2_value==1:\\n\" +\n" +
-                "                    \"            turn_left()\\n\" +\n" +
-                "                    \"            time.sleep(0.5)\\n\" +\n" +
-                "                    \"        \\n\" +\n" +
-                "                    \"        elif ir1_value==1 and ir2_value==0:\\n\" +\n" +
-                "                    \"            turn_right()\\n\" +\n" +
-                "                    \"            time.sleep(0.5)\\n\" +\n" +
-                "                    \"            \\n\" +\n" +
-                "                    \"        else:\\n\" +\n" +
-                "                    \"            move_forward()\\n\" +\n" +
-                "                    \"            time.sleep(1)\\n\" +\n" +
-                "                    \"        \\n\" +\n" +
-                "                    \"            \\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    # Obstacle avoidance logic\\n\" +\n" +
-                "                    \"    if a == 1:\\n\" +\n" +
-                "                    \"        if dist < 15:\\n\" +\n" +
-                "                    \"            stop_motors()\\n\" +\n" +
-                "                    \"            time.sleep(0.5)\\n\" +\n" +
-                "                    \"            move_backward()\\n\" +\n" +
-                "                    \"            time.sleep(2)\\n\" +\n" +
-                "                    \"            turn_motors()\\n\" +\n" +
-                "                    \"            time.sleep(2)\\n\" +\n" +
-                "                    \"            stop_motors()\\n\" +\n" +
-                "                    \"            \\n\" +\n" +
-                "                    \"        else:\\n\" +\n" +
-                "                    \"            move_forward()\\n\" +\n" +
-                "                    \"            \\n\" +\n" +
-                "                    \"    else:\\n\" +\n" +
-                "                    \"        stop_motors()\\n\" +\n" +
-                "                    \"    \\n\" +\n" +
-                "                    \"    time.sleep(0.01)  # Delay before next measurement\\n  \");\n" +
-                "        }               "         );
+
+        //Thony Editor Code
+        
+
+
+        // Thony Editor micro python project code
+
+  /* Code is Commented
+        import machine
+import time
+        time.sleep(2)
+# Define pins
+        TRIG_PIN = 11
+        ECHO_PIN = 12
+        BUTTON1_PIN = 9
+        BUTTON2_PIN = 8
+        IR1_PIN = 5
+        IR2_PIN = 6
+        IN1 = 1
+        IN2 = 2
+        IN3 = 3
+        IN4 = 4
+        a=0
+        b=0
+# Set up GPIO
+                trig = machine.Pin(TRIG_PIN, machine.Pin.OUT)
+        echo = machine.Pin(ECHO_PIN, machine.Pin.IN)
+        button1 = machine.Pin(BUTTON1_PIN, machine.Pin.IN, machine.Pin.PULL_DOWN)
+        button2 = machine.Pin(BUTTON2_PIN, machine.Pin.IN, machine.Pin.PULL_DOWN)
+        ir1 = machine.Pin(IR1_PIN, machine.Pin.IN)
+        ir2 = machine.Pin(IR2_PIN, machine.Pin.IN)
+
+        motor1_forward = machine.Pin(IN1, machine.Pin.OUT)
+        motor1_backward = machine.Pin(IN2, machine.Pin.OUT)
+        motor2_forward = machine.Pin(IN4, machine.Pin.OUT)
+        motor2_backward = machine.Pin(IN3, machine.Pin.OUT)
+
+        def measure_distance():
+    # Ensure trigger is low
+        trig.low()
+        time.sleep_us(2)
+
+    # Send a 10us pulse to trigger
+        trig.high()
+        time.sleep_us(10)
+        trig.low()
+
+    # Wait for echo to go high and record the start time
+        while echo.value() == 0:
+        pass
+                start = time.ticks_us()
+
+    # Wait for echo to go low and record the end time
+        while echo.value() == 1:
+        pass
+                end = time.ticks_us()
+
+    # Calculate duration and distance
+        duration = end - start
+        distance = (duration * 0.0343) / 2  # Convert to cm
+
+        return distance
+
+        def move_forward():
+        motor1_forward.high()
+        motor1_backward.low()
+        motor2_forward.high()
+        motor2_backward.low()
+
+        def move_backward():
+        motor1_forward.low()
+        motor1_backward.high()
+        motor2_forward.low()
+        motor2_backward.high()
+
+        def turn_motors():
+        motor1_forward.high()
+        motor1_backward.low()
+        motor2_forward.low()
+        motor2_backward.high()
+
+        def turn_right():
+        motor1_forward.high()
+        motor1_backward.low()
+        motor2_forward.low()
+        motor2_backward.high()
+
+        def turn_left():
+        motor1_forward.low()
+        motor1_backward.high()
+        motor2_forward.high()
+        motor2_backward.low()
+
+        def stop_motors():
+        motor1_forward.low()
+        motor1_backward.low()
+        motor2_forward.low()
+        motor2_backward.low()
+
+        while True:
+        dist = measure_distance()
+        button1_state = button1.value()
+        button2_state = button2.value()
+        ir1_value = ir1.value()
+        ir2_value = ir2.value()
+
+        if button1_state == 1:
+        a=1
+        b=0
+
+        if button2_state == 1:
+        a=0
+        b=1
+
+        if b==1:
+        if ir1_value==0 and ir2_value==1:
+        turn_left()
+        time.sleep(0.5)
+
+        elif ir1_value==1 and ir2_value==0:
+        turn_right()
+        time.sleep(0.5)
+
+        else:
+        move_forward()
+        time.sleep(1)
+
+
+
+
+    # Obstacle avoidance logic
+        if a == 1:
+        if dist < 15:
+        stop_motors()
+        time.sleep(0.5)
+        move_backward()
+        time.sleep(2)
+        turn_motors()
+        time.sleep(2)
+        stop_motors()
+
+        else:
+        move_forward()
+
+    else:
+        stop_motors()
+
+        time.sleep(0.01)  # Delay before next measurement
+*/
+
     }
 
 }
